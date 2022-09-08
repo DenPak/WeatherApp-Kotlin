@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Weather_Kotlin</string>
+    <string name="tabsHours">Hours</string>
+    <string name="tabDays">Days</string>
+    <string name="editSearchCityHint">Поиск города…</string>
+    <string name="buttonSearch">Search</string>
+    <string name="input_city">Введите город…</string>
+    <string name="input_daysCount">Количество дней…</string>
+    <string name="default_temp">30°C</string>
+</resources>
