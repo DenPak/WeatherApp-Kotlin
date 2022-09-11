@@ -1,4 +1,4 @@
-package ru.startandroid.develop.akot3.repository.apiservice
+package ru.startandroid.develop.akot3.model.repository.apiservice
 
 import retrofit2.Call
 import retrofit2.http.GET

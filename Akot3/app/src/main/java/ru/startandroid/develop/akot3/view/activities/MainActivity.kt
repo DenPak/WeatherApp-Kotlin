@@ -1,4 +1,4 @@
-package ru.startandroid.develop.akot3.activities
+package ru.startandroid.develop.akot3.view.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,19 +6,16 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.squareup.picasso.Picasso
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import ru.startandroid.develop.akot3.adapters.FragmentAdapter
 import ru.startandroid.develop.akot3.databinding.ActivityMainBinding
-import ru.startandroid.develop.akot3.fragments.FragmentDays
-import ru.startandroid.develop.akot3.fragments.FragmentHours
-import ru.startandroid.develop.akot3.model.WeatherModel
+import ru.startandroid.develop.akot3.view.fragments.FragmentDays
+import ru.startandroid.develop.akot3.view.fragments.FragmentHours
+import ru.startandroid.develop.akot3.viewmodel.WeatherModel
 
 import kotlin.text.StringBuilder
 

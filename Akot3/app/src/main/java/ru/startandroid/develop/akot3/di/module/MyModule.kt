@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.startandroid.develop.akot3.repository.WeatherRepositoryImpl
-import ru.startandroid.develop.akot3.repository.apiservice.ApiService
+import ru.startandroid.develop.akot3.model.repository.WeatherRepositoryImpl
+import ru.startandroid.develop.akot3.model.repository.apiservice.ApiService
 
 @Module
 class MyModule {

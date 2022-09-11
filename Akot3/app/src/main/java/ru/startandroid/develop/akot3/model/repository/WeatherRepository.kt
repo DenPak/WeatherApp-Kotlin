@@ -1,4 +1,4 @@
-package ru.startandroid.develop.akot3.repository
+package ru.startandroid.develop.akot3.model.repository
 
 import retrofit2.Call
 import ru.startandroid.develop.akot3.data.Example

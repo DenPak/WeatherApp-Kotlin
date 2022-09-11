@@ -1,9 +1,9 @@
-package ru.startandroid.develop.akot3.repository
+package ru.startandroid.develop.akot3.model.repository
 
 import retrofit2.Call
 import retrofit2.Retrofit
 import ru.startandroid.develop.akot3.data.Example
-import ru.startandroid.develop.akot3.repository.apiservice.ApiService
+import ru.startandroid.develop.akot3.model.repository.apiservice.ApiService
 
 class WeatherRepositoryImpl(val retrofit: Retrofit,  val apiService:ApiService):WeatherRepository {
 

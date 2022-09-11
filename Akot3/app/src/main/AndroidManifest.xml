@@ -16,15 +16,15 @@
         android:theme="@style/Theme.Akot3"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity android:name=".activities.SearchActivity"
+        <activity android:name="ru.startandroid.develop.akot3.view.activities.SearchActivity"
             >
 
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name="ru.startandroid.develop.akot3.view.activities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.FirstActivity"
+            android:name="ru.startandroid.develop.akot3.view.activities.FirstActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

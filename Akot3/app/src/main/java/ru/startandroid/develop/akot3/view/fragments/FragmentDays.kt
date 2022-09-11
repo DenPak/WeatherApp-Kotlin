@@ -1,6 +1,6 @@
-package ru.startandroid.develop.akot3.fragments
+package ru.startandroid.develop.akot3.view.fragments
 
-import android.content.Intent
+
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,31 +13,23 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import ru.startandroid.develop.akot3.R
-import ru.startandroid.develop.akot3.adapters.HoursAdapter
+import ru.startandroid.develop.akot3.adapters.DaysAdapter
 import ru.startandroid.develop.akot3.data.Example
-import ru.startandroid.develop.akot3.data.Forecast
-import ru.startandroid.develop.akot3.data.Forecastday
-import ru.startandroid.develop.akot3.data.Hour
-import ru.startandroid.develop.akot3.databinding.FragmentsHoursBinding
-import ru.startandroid.develop.akot3.model.WeatherModel
+import ru.startandroid.develop.akot3.databinding.FragmentsDaysBinding
+import ru.startandroid.develop.akot3.viewmodel.WeatherModel
 
-class FragmentHours : Fragment() {
-
+class FragmentDays : Fragment() {
+    private lateinit var fragmentsDaysBinding: FragmentsDaysBinding
+    private val daysAdapter = DaysAdapter()
     private var mutableList: MutableList<Example> = mutableListOf()
-    private val hoursAdapter: HoursAdapter = HoursAdapter()
-    private val disposeBag =CompositeDisposable()
-
-    private lateinit var hour: List<Hour>
-    private lateinit var forecastDay: Forecastday
-    private lateinit var binding: FragmentsHoursBinding
-
+    private val disposeBag = CompositeDisposable()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragments_hours, container, false);
-        binding = FragmentsHoursBinding.bind(view)
+        val view = inflater.inflate(R.layout.fragments_days, container, false)
+        fragmentsDaysBinding = FragmentsDaysBinding.bind(view)
 
         return view
     }
@@ -48,33 +40,29 @@ class FragmentHours : Fragment() {
 
         val intent = requireActivity().intent
         val city = intent.getStringExtra("city")
-        val days = intent.getIntExtra("days", 0)
-        binding.apply {
-            recycleHours.layoutManager = LinearLayoutManager(requireContext())
+        val days = intent.getIntExtra("days", 3)
+
+        fragmentsDaysBinding.apply {
+            recycleDays.layoutManager = LinearLayoutManager(requireContext())
 
             val disposable = city?.let {
                 weatherModel.getResult(it, days)
                     .subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        val list =it.forecast.forecastday
-                        for (i in list.indices) {
-                            forecastDay = list[i]
-                        }
-                        hour = forecastDay.hour
-                        for (h in hour.indices) {
+
+                        val forecastDayList = it.forecast.forecastday
+
+                        for (i in forecastDayList.indices) {
                             mutableList.add(it)
                         }
-                        hoursAdapter.setHours(mutableList)
+                        daysAdapter.setData(mutableList)
 
                     }, {
-                        Log.d("Log", "error ${it.localizedMessage}")
-                    }, {
-
+                        Log.d("log", "error ${it.localizedMessage}")
                     })
             }
-            recycleHours.adapter = hoursAdapter
-
+            recycleDays.adapter = daysAdapter
             disposable?.let { disposeBag.add(it) }
         }
 
@@ -84,5 +72,6 @@ class FragmentHours : Fragment() {
         super.onDestroy()
         disposeBag.clear()
     }
+
 
 }

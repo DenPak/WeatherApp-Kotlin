@@ -1,12 +1,10 @@
-package ru.startandroid.develop.akot3.activities
+package ru.startandroid.develop.akot3.view.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import ru.startandroid.develop.akot3.activities.MainActivity
 
 import ru.startandroid.develop.akot3.databinding.ActivitySearchBinding
-import ru.startandroid.develop.akot3.fragments.FragmentDays
 
 class SearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchBinding

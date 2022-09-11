@@ -1,8 +1,6 @@
-package ru.startandroid.develop.akot3.model
+package ru.startandroid.develop.akot3.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import retrofit2.Call
